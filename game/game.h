@@ -10,7 +10,7 @@
 
 using namespace std;
 
-// Ä³¸¯ÅÍ ±âº» Å¬·¡½º (Ãß»ó Å¬·¡½º)
+// ìºë¦­í„° ê¸°ë³¸ í´ë˜ìŠ¤ (ì¶”ìƒ í´ë˜ìŠ¤)
 class Character {
 protected:
     string name;
@@ -36,7 +36,7 @@ public:
     void levelUp();
 };
 
-// Àü»ç Å¬·¡½º
+// ì „ì‚¬ í´ë˜ìŠ¤
 class Warrior : public Character {
 public:
     Warrior(string n);
@@ -44,7 +44,7 @@ public:
     void specialAttack(Character& target) override;
 };
 
-// ¸¶¹ı»ç Å¬·¡½º
+// ë§ˆë²•ì‚¬ í´ë˜ìŠ¤
 class Mage : public Character {
 private:
     int mana;
@@ -54,7 +54,7 @@ public:
     void specialAttack(Character& target) override;
 };
 
-// µµÀû Å¬·¡½º
+// ë„ì  í´ë˜ìŠ¤
 class Rogue : public Character {
 public:
     Rogue(string n);
@@ -62,13 +62,13 @@ public:
     void specialAttack(Character& target) override;
 };
 
-// ÀüÅõ °ü¸® Å¬·¡½º
+// ì „íˆ¬ ê´€ë¦¬ í´ë˜ìŠ¤
 class BattleManager {
 public:
     static void startBattle(shared_ptr<Character> player, shared_ptr<Character> enemy);
 };
 
-// À¯Æ¿¸®Æ¼ ÇÔ¼ö
+// ìœ í‹¸ í•¨ìˆ˜
 int getRandomNumber(int min, int max);
 void delay(int milliseconds);
 shared_ptr<Character> chooseCharacter(const string& prompt);
