@@ -15,7 +15,7 @@ void delay(int milliseconds) {
 
 // 캐릭터 기본 클래스 구현
 Character::Character(string n, int lvl, int hp, int atk)
-    : name(n), level(lvl), health(hp), attackPower(atk), exp(0), expToLevelUp(50) {
+    : name(n), level(lvl), health(hp), maxHealth(hp), attackPower(atk), exp(0), expToLevelUp(50) {
 }
 
 void Character::takeDamage(int damage) {
@@ -34,6 +34,8 @@ void Character::showStatus() const {
 
 void Character::resetHealth() {
     health = 100 + (level - 1) * 10; // 레벨이 오를수록 체력이 증가
+    health = maxHealth;
+    cout << name << "의 체력이 회복되었습니다! (HP: " << health << " )" << endl;
 }
 
 string Character::getName() const {
@@ -55,10 +57,10 @@ void Character::levelUp() {
     exp -= expToLevelUp;
     level++;
     expToLevelUp += 20; // 다음 레벨업에 필요한 경험치 증가
-    health += 10;       // 체력 증가
+    maxHealth += 10;       // 체력 증가
+    health = maxHealth;    // 체력 완전 회복
     attackPower += 2;   // 공격력 증가
-    cout << name << "이(가) 레벨업! 레벨 " << level << "이 되었습니다!" << endl;
-    resetHealth();
+    cout << name << "이(가) 레벨업! (Lv: " << level << ", HP: " << maxHealth << ", ATK: " << attackPower << ")" << endl;    resetHealth();
 }
 
 // 전사 클래스 구현

@@ -14,12 +14,15 @@ int main() {
             break;
         }
 
+        player->resetHealth(); // 플레이어 체력 회복
+
         cout << "새로운 적과 싸우겠습니까? (y/n): ";
         char choice;
         cin >> choice;
         if (choice != 'y') break;
 
         enemy = chooseCharacter("새로운 적을 선택하세요:");
+        enemy->resetHealth(); // 적 체력 회복
     }
 
     return 0;

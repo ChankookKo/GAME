@@ -10,12 +10,13 @@
 
 using namespace std;
 
-// ìºë¦­í„° ê¸°ë³¸ í´ë˜ìŠ¤ (ì¶”ìƒ í´ë˜ìŠ¤)
+// Ä³¸¯ÅÍ ±âº» Å¬·¡½º (Ãß»ó Å¬·¡½º)
 class Character {
 protected:
     string name;
     int level;
     int health;
+    int maxHealth; //ÃÖ´ë Ã¼·Â Ãß°¡
     int attackPower;
     int exp;
     int expToLevelUp;
@@ -29,14 +30,14 @@ public:
     void takeDamage(int damage);
     bool isAlive() const;
     void showStatus() const;
-    void resetHealth();
+    void resetHealth(); //Ã¼·Â ÃÊ±âÈ­ ÇÔ¼ö
     string getName() const;
 
     void gainExp(int amount);
     void levelUp();
 };
 
-// ì „ì‚¬ í´ë˜ìŠ¤
+// Àü»ç Å¬·¡½º
 class Warrior : public Character {
 public:
     Warrior(string n);
@@ -44,7 +45,7 @@ public:
     void specialAttack(Character& target) override;
 };
 
-// ë§ˆë²•ì‚¬ í´ë˜ìŠ¤
+// ¸¶¹ı»ç Å¬·¡½º
 class Mage : public Character {
 private:
     int mana;
@@ -54,7 +55,7 @@ public:
     void specialAttack(Character& target) override;
 };
 
-// ë„ì  í´ë˜ìŠ¤
+// µµÀû Å¬·¡½º
 class Rogue : public Character {
 public:
     Rogue(string n);
@@ -62,13 +63,13 @@ public:
     void specialAttack(Character& target) override;
 };
 
-// ì „íˆ¬ ê´€ë¦¬ í´ë˜ìŠ¤
+// ÀüÅõ °ü¸® Å¬·¡½º
 class BattleManager {
 public:
     static void startBattle(shared_ptr<Character> player, shared_ptr<Character> enemy);
 };
 
-// ìœ í‹¸ í•¨ìˆ˜
+// À¯Æ¿¸®Æ¼ ÇÔ¼ö
 int getRandomNumber(int min, int max);
 void delay(int milliseconds);
 shared_ptr<Character> chooseCharacter(const string& prompt);
