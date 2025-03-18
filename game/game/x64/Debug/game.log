@@ -1,0 +1,5 @@
+﻿  game.cpp
+C:\Users\K\Documents\CodingOn\cplusplus\game\game.cpp(89,39): warning C4244: '인수': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  main.cpp
+  코드를 생성하고 있습니다...
+  game.vcxproj -> C:\Users\K\Documents\CodingOn\cplusplus\game\x64\Debug\game.exe
